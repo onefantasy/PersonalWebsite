@@ -1,0 +1,76 @@
+/* app 路由跳转动画 开始 */
+
+.app-enter-from {
+  transform: translateX(100%);
+  width: 100vw;
+  height: 100vh;
+}
+
+.app-enter-active,
+.app-leave-active {
+  transition: all 0.5s;
+  width: 100vw;
+  height: 100vh;
+}
+
+.app-leave-to {
+  transform: translateX(-100%);
+  width: 100vw;
+  height: 100vh;
+}
+
+/* app 路由跳转动画 结束 */
+
+/* layout 路由跳转动画 开始 */
+.rotate-layout-enter-active,
+.rotate-layout-leave-active {
+  transform: rotateY(0deg);
+  transition: all 0.5s ease;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.rotate-layout-enter-from,
+.rotate-layout-leave-to {
+  opacity: 0;
+  transform: rotateY(-180deg);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* layout 路由跳转动画 结束 */
+
+/* 账号登录、注册页面切换 开始 */
+.account-enter-active,
+.account-leave-active {
+  transform: rotateY(0deg);
+  transition: all 0.5s ease;
+  position: absolute;
+}
+
+.account-enter-from,
+.account-leave-to {
+  opacity: 0;
+  transform: rotateY(-180deg);
+  position: absolute;
+}
+
+/* 账号登录、注册页面切换 结束 */
+
+/* max-width change animation start */
+.max-width-enter-active,
+.max-width-leave-active {
+  transition: all 0.5s ease;
+  opacity: 1;
+  max-width: 4000px;
+}
+
+.max-width-enter-from,
+.max-width-leave-to {
+  opacity: 0;
+  max-width: 0;
+}
+
+/* max-width change animation end */

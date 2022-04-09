@@ -1,0 +1,49 @@
+{
+  "name": "demo",
+  "version": "0.0.0",
+  "scripts": {
+    "serve": "vite",
+    "build": "vue-tsc --noEmit --skipLibCheck && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
+    "prettier": "prettier --write ."
+  },
+  "dependencies": {
+    "mockjs": "^1.1.0",
+    "pinia": "^2.0.0-rc.10",
+    "three": "^0.138.3",
+    "vue": "^3.2.25",
+    "vue-i18n": "^9.2.0-beta.29",
+    "vue-router": "^4.0.12"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.10",
+    "@types/nprogress": "^0.2.0",
+    "@types/three": "^0.138.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "@vitejs/plugin-vue": "^2.0.0",
+    "autoprefixer": "^10.4.2",
+    "axios": "^0.25.0",
+    "dart-sass": "^1.25.0",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.3.0",
+    "naive-ui": "^2.26.0",
+    "nprogress": "^0.2.0",
+    "postcss": "^8.4.5",
+    "prettier": "^2.5.1",
+    "sass": "^1.49.0",
+    "stylelint": "^14.2.0",
+    "stylelint-config-standard": "^24.0.0",
+    "tailwindcss": "^3.0.15",
+    "typescript": "^4.4.4",
+    "vfonts": "^0.0.3",
+    "vite": "^2.7.2",
+    "vite-plugin-html": "^2.1.2",
+    "vite-plugin-mock": "^2.9.6",
+    "vite-plugin-svg-icons": "^1.1.0",
+    "vue-tsc": "^0.29.8"
+  }
+}

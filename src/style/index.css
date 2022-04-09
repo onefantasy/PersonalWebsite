@@ -1,0 +1,21 @@
+/* transition 过渡动画 */
+@import "./transition.css";
+
+/* 代替@tailwind base; */
+@import "./base.css";
+
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow: hidden;
+}
+
+/* icon svg position */
+.n-icon svg {
+  margin-top: -2px;
+}
+
+.my-font-family {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}

@@ -1,0 +1,23 @@
+import Layout from '@/layout/index.vue'
+
+export default {
+  path: '/page',
+  name: 'page',
+  component: Layout,
+  meta: { title: 'route.page', icon: 'page' },
+  redirect: '/page/index',
+  children: [
+    {
+      path: 'index',
+      name: 'pageIndex',
+      component: () => import('@/views/page/personalHomepage/personalHomepage.vue'),
+      meta: { title: 'route.PersonalHomepage', icon: 'red-hat' }
+    },
+    {
+      path: 'table',
+      name: 'pageTable',
+      component: () => import('@/views/page/table/table.vue'),
+      meta: { title: 'route.table', icon: 'table' }
+    }
+  ]
+}
