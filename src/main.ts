@@ -13,6 +13,10 @@ import svgIcon from './components/svgIcon.vue'
 // directibe
 import { directiveLoading } from '@/components/loading/directive'
 
+// mock
+import { setupProdMockServer } from '../mock/mockProdServer'
+setupProdMockServer()
+
 createApp(App)
   .use(createPinia())
   .use(router)

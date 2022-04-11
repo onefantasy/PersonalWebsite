@@ -13,7 +13,7 @@ export default [
     method: 'get',
     timeout: 1000,
     statusCode: 200,
-    response: ({ query }) => {
+    response: ({ query }: { query: { pageNumber: number; pageSize: number; filters: string } }) => {
       const { pageNumber, pageSize, filters } = query
       const { sex, address } = JSON.parse(filters)
       const list = []

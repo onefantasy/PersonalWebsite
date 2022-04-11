@@ -30,7 +30,7 @@ export default defineConfig(({ mode, command }: ConfigEnv) => {
         mockPath: 'mock',
         localEnabled: command === 'serve',
         // don't inject code to production
-        prodEnabled: false
+        prodEnabled: true
       })
     ],
     resolve: {
