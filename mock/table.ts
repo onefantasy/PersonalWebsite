@@ -11,7 +11,7 @@ export default [
   {
     url: '/mock/page/tableList',
     method: 'get',
-    timeout: 1000,
+    timeout: 100000,
     statusCode: 200,
     response: ({ query }: { query: { pageNumber: number; pageSize: number; filters: string } }) => {
       const { pageNumber, pageSize, filters } = query

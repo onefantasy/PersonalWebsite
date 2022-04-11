@@ -30,6 +30,12 @@ export default {
       name: 'threeMaze',
       component: () => import('@/views/three/maze.vue'),
       meta: { title: 'route.threeMaze', icon: 'maze' }
+    },
+    {
+      path: 'curvedSurface',
+      name: 'threeCurvedSurface',
+      component: () => import('@/views/three/curvedSurface.vue'),
+      meta: { title: 'route.threeCurvedSurface', icon: 'curvedSurface' }
     }
   ]
 }

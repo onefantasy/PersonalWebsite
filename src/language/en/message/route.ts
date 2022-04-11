@@ -17,5 +17,6 @@ export default {
   threeDemo: 'Demo 1',
   threeDemo2: 'Demo 2',
   threeMaze: 'Maze',
-  threeSkyBox: 'Sky Box'
+  threeSkyBox: 'Sky Box',
+  threeCurvedSurface: 'Curved Surface'
 }

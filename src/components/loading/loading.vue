@@ -1,7 +1,7 @@
 <template>
   <section
-    class="absolute top-0 bottom-0 left-0 right-0 z-40 transition-all duration-500 opacity-0 select-none bg-zinc-800 text-slate-100 custom-loading"
-    :class="[isShow ? 'opacity-100' : 'opacity-0']"
+    class="absolute top-0 bottom-0 left-0 right-0 z-40 transition-all duration-500 opacity-0 select-none text-slate-100 custom-loading"
+    :class="[isShow ? 'opacity-100' : 'opacity-0', opactiyHalf ? 'bg-zinc-800/50' : 'bg-zinc-800']"
   >
     <section
       class="absolute left-0 right-0 text-3xl font-bold tracking-wider text-center md:text-5xl top-1/2 text-zinc-800 loading-text"
@@ -15,6 +15,13 @@
 
 <script lang="ts" setup>
   import { ref, onMounted } from 'vue'
+
+  defineProps({
+    opactiyHalf: {
+      type: Boolean,
+      defalute: false
+    }
+  })
 
   // 加载界面开启关闭标志
   const isShow = ref<boolean>(true)
