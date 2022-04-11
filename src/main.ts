@@ -14,6 +14,7 @@ import svgIcon from './components/svgIcon.vue'
 import { directiveLoading } from '@/components/loading/directive'
 
 // mock
+// 若是不需要在product环境使用mock，可以删除以下两行代码
 import { setupProdMockServer } from '../mock/mockProdServer'
 setupProdMockServer()
 
