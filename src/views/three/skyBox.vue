@@ -7,7 +7,7 @@
     @click.stop="handleClick"
   >
     <n-popover ref="tip" :x="popoverX" :y="popoverY" trigger="manual">
-      {{ popoverContent }}
+      {{ $t(popoverContent) }}
     </n-popover>
   </div>
 </template>
@@ -69,17 +69,29 @@
   const popoverY = ref<number>(0)
   const popoverContent = ref<string>('')
   const livingroomTipInfoList: Array<skyBoxTipItemType> = [
-    { x: -199, y: -24, z: -145, content: '要进去厨房看看吗 ?', senceInfo: skyBoxSenceKeys.kitchen },
-    { x: 200, y: 0, z: 145, content: '这是一台电视, 在手机横行的时代，似乎已经没用了 !' },
-    { x: -250, y: 0, z: 0, content: '普通的窗户, 似乎不能进行信仰之跃 !' },
-    { x: 250, y: 0, z: 0, content: '落地窗, 采光好, 风景好 !' },
-    { x: 0, y: -250, z: 0, content: '这地板竟如此丝滑 !' },
-    { x: 170, y: -100, z: 140, content: '很舒服的靠枕 !' },
-    { x: 20, y: 0, z: -250, content: '没有门神的门 !' },
-    { x: 0, y: 0, z: 250, content: '世界名画(大雾) !' }
+    {
+      x: -199,
+      y: -24,
+      z: -145,
+      content: 'three.skyBoxTokitchen',
+      senceInfo: skyBoxSenceKeys.kitchen
+    },
+    { x: 200, y: 0, z: 145, content: 'three.skyBoxTV' },
+    { x: -250, y: 0, z: 0, content: 'three.skyBoxWindow' },
+    { x: 250, y: 0, z: 0, content: 'three.skyBoxFrenchWindow' },
+    { x: 0, y: -250, z: 0, content: 'three.skyBoxFloor' },
+    { x: 170, y: -100, z: 140, content: 'three.skyBoxPillow' },
+    { x: 20, y: 0, z: -250, content: 'three.skyBoxDoor' },
+    { x: 0, y: 0, z: 250, content: 'three.skyBoxPaintings' }
   ]
   const kitchenTipInfoList: Array<skyBoxTipItemType> = [
-    { x: -200, y: -25, z: 150, content: '客厅在这边 !', senceInfo: skyBoxSenceKeys.livingroom }
+    {
+      x: -200,
+      y: -25,
+      z: 150,
+      content: 'three.skyBoxTolivingroom',
+      senceInfo: skyBoxSenceKeys.livingroom
+    }
   ]
 
   // 场景信息

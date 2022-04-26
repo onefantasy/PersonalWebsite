@@ -1,4 +1,5 @@
 export default {
+  // 迷宫
   mazeTip: `迷宫玩法:
     1. 从以下选项中选择迷宫的生成算法;
     2. 鼠标双击迷宫, 锁定鼠标, 此时可以通过w、s、a、d和鼠标滑动木箱的移动和方向;
@@ -10,6 +11,18 @@ export default {
   mazeRow: '行',
   mazeCol: '列',
 
+  // 天空盒子
+  skyBoxTokitchen: '要进去厨房看看吗 ?',
+  skyBoxTV: '这是一台电视, 在手机横行的时代，似乎已经没用了 !',
+  skyBoxWindow: '普通的窗户, 似乎不能进行信仰之跃 !',
+  skyBoxFrenchWindow: '落地窗, 采光好, 风景好 !',
+  skyBoxFloor: '这地板竟如此丝滑 !',
+  skyBoxPillow: '很舒服的靠枕 !',
+  skyBoxDoor: '没有门神的门 !',
+  skyBoxPaintings: '世界名画(大雾) !',
+  skyBoxTolivingroom: '客厅在这边 !',
+
+  // 曲面展示
   curvedsurfaceUnit: '列/页',
   curvedSurfaceInfo: `无常
     查良铮 译

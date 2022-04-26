@@ -1,4 +1,5 @@
 export default {
+  // maze
   mazeTip: `Maze play:
     1. Select the generation algorithm of maze from the following options;
     2. Double click the maze and lock the mouse. At this time, you can slide the movement and direction of the wooden box through W, S, A, D and the mouse;
@@ -10,6 +11,18 @@ export default {
   mazeRow: 'Row',
   mazeCol: 'Col',
 
+  // sky box
+  skyBoxTokitchen: 'Want to go into the kitchen ?',
+  skyBoxTV: 'This is a TV. It seems useless in the era of mobile phones !',
+  skyBoxWindow: 'Ordinary windows can not seem to jump in faith !',
+  skyBoxFrenchWindow: 'French windows, good lighting, good scenery !',
+  skyBoxFloor: 'This floor is so silky !',
+  skyBoxPillow: 'Very comfortable pillow !',
+  skyBoxDoor: 'There is no door god !',
+  skyBoxPaintings: 'World famous painting (big mistake) !',
+  skyBoxTolivingroom: 'The living room is over here !',
+
+  // curved surface
   curvedsurfaceUnit: 'column/page',
   curvedSurfaceInfo: `Mutability
     By Percy Bysshe Shelley
