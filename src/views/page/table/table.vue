@@ -11,13 +11,13 @@
       :flex-height="true"
       :loading="loading"
       :scroll-x="1800"
-      class="absolute top-0 bottom-14 left-0 right-0"
+      class="absolute top-0 left-0 right-0 bottom-14"
       :row-key="(row: tableItemType) => row.id"
       @update:filters="hanldeTableFilter"
     />
 
     <!-- page footer -->
-    <div class="absolute h-14 bottom-0 left-0 right-0 flex justify-around lg:justify-between px-3">
+    <div class="absolute bottom-0 left-0 right-0 flex justify-around px-3 h-14 lg:justify-between">
       <div v-if="!appStore.isMobile" class="flex items-center">
         <n-button type="info" @click="hanldeShowForm">
           <template #icon>
@@ -41,7 +41,7 @@
         :show-quick-jumper="!appStore.isMobile"
         :disabled="loading"
         :page-slot="appStore.isMobile ? 5 : 8"
-        class="items-center h-14 justify-center lg:justify-end"
+        class="items-center justify-center h-14 lg:justify-end"
         @update:page="getTableList"
         @update:pageSize="handleUpdatePageSize"
       />
@@ -55,6 +55,8 @@
 <script lang="ts" setup>
   import type { tableItemType } from './components/type'
   import type { DataTableColumns, DataTableColumn } from 'naive-ui'
+  import type { tableListParams } from '@/api/page/type'
+
   import { sexEnum } from './components/enums'
   import { NImage, NButton, useMessage, NIcon } from 'naive-ui'
   import FilterInput from './components/filterInput.vue'
@@ -63,7 +65,6 @@
   import TableActions from './components/tableActions.vue'
   import { onMounted, ref, h, reactive, nextTick } from 'vue'
   import { apiGetTableList } from '@/api/page/table'
-  import { tableListParams } from '@/api/page/model/table'
   import { useAppStore } from '@/store/modules/app'
 
   const appStore = useAppStore()

@@ -18,5 +18,5 @@ export default {
   threeDemo2: '例子 2',
   threeMaze: '迷宫',
   threeSkyBox: '天空盒子',
-  threeCurvedSurface: '曲面'
+  threeCurvedSurface: '曲面展示'
 }

@@ -5,6 +5,8 @@ export interface appStporeType {
   isMobile: boolean
   isHiddenSider: boolean
   i18n: languageEnum
+  siderWidth: number
+  headerHeight: number
 }
 
 // user.ts

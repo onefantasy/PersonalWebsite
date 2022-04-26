@@ -9,14 +9,16 @@ export const useAppStore = defineStore({
   state: (): appStporeType => ({
     isMobile: true,
     isHiddenSider: true,
-    i18n: languageEnum.zh
+    i18n: languageEnum.zh,
+    siderWidth: 270,
+    headerHeight: 56
   }),
   getters: {
     getIsMove(): boolean {
       return this.isMobile
     },
-    layoutContentResize(): boolean {
-      return !this.isMobile && this.isHiddenSider
+    getSidebarOccupancy(): boolean {
+      return !this.isMobile && !this.isHiddenSider
     }
   },
   actions: {

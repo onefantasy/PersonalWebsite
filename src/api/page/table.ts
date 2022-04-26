@@ -1,5 +1,5 @@
 import axios from '@/utils/axios'
-import type { tableListParams } from './model/table'
+import type { tableListParams } from './type'
 
 axios.defaults.baseURL = '/mock'
 

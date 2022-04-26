@@ -1,9 +1,18 @@
 <template>
   <n-layout position="absolute" style="height: 100vh" class="layout">
-    <n-layout-header position="absolute" class="shadow layout-header">
+    <n-layout-header
+      position="absolute"
+      class="shadow layout-header"
+      :style="`height:${appStore.headerHeight}px;z-index:1;`"
+    >
       <Header />
     </n-layout-header>
-    <n-layout has-sider position="absolute" class="layout-content">
+    <n-layout
+      has-sider
+      position="absolute"
+      class="layout-content"
+      :style="`top:${appStore.headerHeight}px;bottom:0;`"
+    >
       <n-layout-sider
         bordered
         :inverted="true"
@@ -14,6 +23,7 @@
         class="z-50"
         :class="{ 'bar-inner': !hiddenSider }"
         :position="appStore.isMobile ? 'absolute' : 'static'"
+        :width="appStore.siderWidth"
         @update:collapsed="hanldeUpdateCollapsed"
       >
         <Sider @menuUpdateValue="handleMenuUpdateValue" />
@@ -70,16 +80,7 @@
 </script>
 
 <style lang="scss">
-  $header_height: 3.5rem;
   .layout {
-    .layout-header {
-      height: $header_height;
-      z-index: 1;
-    }
-    .layout-content {
-      top: calc($header_height);
-      bottom: 0;
-    }
     .bar-inner {
       .n-layout-toggle-bar {
         right: 0 !important;

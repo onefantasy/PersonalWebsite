@@ -36,6 +36,13 @@ module.exports = {
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-this-alias': [
+      'error',
+      {
+        // allowDestructuring: false, // Disallow `const { props, state } = this`; true by default
+        allowedNames: ['_this'] // Allow `const self = this`; `[]` by default
+      }
+    ],
     'prettier/prettier': 'error',
     // 禁止出现console
     'no-console': 'warn',
