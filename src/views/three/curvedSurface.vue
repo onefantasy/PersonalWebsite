@@ -50,11 +50,12 @@
 
   import CurvedSurfaceDetail from './components/curvedSurfaceDetail.vue'
 
-  import { onMounted, onBeforeUnmount, ref, nextTick } from 'vue'
+  import { onMounted, onBeforeUnmount, ref, nextTick, watch, computed } from 'vue'
   import { apiGetCurvedSurfaceList } from '@/api/three/three'
   import { threeHandlerClass } from './components/curvedSurfaceThree'
   import { useI18n } from 'vue-i18n'
   import { useMessage } from 'naive-ui'
+  import { useAppStore } from '@/store/modules/app'
   import { createListener } from '@/utils/listener'
 
   const container = ref<HTMLElement | null>()
@@ -62,7 +63,9 @@
 
   const { t } = useI18n()
   const message = useMessage()
+  const appStore = useAppStore()
 
+  const silderBarOccupany = computed(() => appStore.getSidebarOccupancy)
   const isLoading = ref<boolean>(false)
 
   // auto play
@@ -225,10 +228,25 @@
     threeHandler && threeHandler.setAutoPlaySpeed(autoPlaySpeed.value)
   }
 
+  /** 初始化监听 */
+  function initWatch(): void {
+    // 监听侧边栏是否占用位置
+    watch(
+      silderBarOccupany,
+      () => {
+        onWindowResize()
+      },
+      { deep: true, immediate: false }
+    )
+  }
+
   onMounted((): void => {
     removeWindowResize = createListener({ name: 'resize', listener: onWindowResize })
     // 在nextTick获取渲染区域信息
-    nextTick((): void => init())
+    nextTick((): void => {
+      init()
+      initWatch()
+    })
   })
 
   onBeforeUnmount((): void => {

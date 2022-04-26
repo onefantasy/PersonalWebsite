@@ -148,7 +148,7 @@
 <style lang="scss" scoped>
   .curved-surface-detail {
     .curved-surface-detail-content {
-      width: 66% !important;
+      width: 50% !important;
       height: 50% !important;
       top: 50% !important;
       left: 50% !important;
