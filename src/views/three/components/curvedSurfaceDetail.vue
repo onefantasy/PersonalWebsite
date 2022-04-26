@@ -9,9 +9,9 @@
     @click.stop="close"
   >
     <div
-      class="absolute overflow-hidden transition-all duration-1000 rounded-md"
-      :class="{ 'curved-surface-detail-content rounded-2xl': isAnimate }"
-      :style="`width:${position.width}px;height:${position.height}px;top:${position.top}px;left:${position.left}px;`"
+      class="absolute overflow-hidden transition-all duration-1000 origin-top-left rounded-md"
+      :class="{ 'curved-surface-detail-content': isAnimate }"
+      :style="`width:${position.width}px;height:${position.height}px;top:${position.top}px;left:${position.left}px;transform-origin: center center 0%;`"
       @click.stop="() => {}"
     >
       <!-- Part A -->
@@ -53,6 +53,7 @@
 <script lang="ts" setup>
   import { ref, reactive, defineExpose, defineEmits, nextTick } from 'vue'
   import { useAppStore } from '@/store/modules/app'
+  import { createListener } from '@/utils/listener'
 
   const container = ref<HTMLElement | null>()
   const emits = defineEmits(['closed'])
@@ -71,6 +72,7 @@
 
   let target: HTMLImageElement | null = null
   let closeTimer = 0
+  let removeDoucmentKeydown = () => {}
 
   /**
    * 展示详情
@@ -95,11 +97,18 @@
       targetNode.style.opacity = '0'
       isShow.value = true
 
+      removeDoucmentKeydown = createListener({ name: 'keydown', listener: handleKeyDown })
+
       setTimeout(() => {
         isAnimate.value = true
       }, 50)
     })
     return true
+  }
+
+  /** 监听键盘按下, 如果是esc, 则退出全屏 */
+  function handleKeyDown(event: KeyboardEvent) {
+    event.key === 'Escape' && close()
   }
 
   /** 展示之前的检查，确认上一个元素是否关闭完毕 */
@@ -113,12 +122,14 @@
       target.style.opacity = '1'
       target = null
     }
+    removeDoucmentKeydown()
   }
 
   /** 点击内容以外的区域，关闭 */
-  function close(event: MouseEvent): void {
+  function close(): void {
     isAnimate.value = false
     closeTimer && clearTimeout(closeTimer)
+    removeDoucmentKeydown()
     closeTimer = setTimeout((): void => {
       isShow.value = false
       closeTimer = 0
@@ -141,6 +152,7 @@
       height: 50% !important;
       top: 50% !important;
       left: 50% !important;
+      border-radius: 16px;
       transform: rotateY(360deg) translate(-50%, -50%);
     }
   }
