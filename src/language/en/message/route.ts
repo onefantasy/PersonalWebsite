@@ -8,6 +8,7 @@ export default {
   page: 'Page',
   PersonalHomepage: 'Personal Homepage',
   table: 'Table',
+  icons: 'Icons',
 
   // 404
   404: '404',

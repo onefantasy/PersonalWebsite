@@ -8,6 +8,7 @@ export default {
   page: '页面',
   PersonalHomepage: '个人主页',
   table: '表格',
+  icons: '图标',
 
   // 404
   404: '404',

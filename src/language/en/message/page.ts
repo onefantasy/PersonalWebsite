@@ -1,4 +1,5 @@
 export default {
+  // task
   viewsTitle: 'Number Of Visitors:',
   views: 'views',
   selfIntroduction:
@@ -20,5 +21,12 @@ export default {
   taskCreatedTime: 'Create Time',
   taskActualStartTime: 'Actual Start',
   taskActualEndTime: 'Actual End',
-  tipNotEmpty: ' not be empty !'
+  tipNotEmpty: ' not be empty !',
+
+  // icons
+  iconCopy: 'Copy Name',
+  iconPreview: 'Preview',
+  iconEditIcon: 'Icon',
+  iconEditBackground: 'Background',
+  iconEditRadius: 'Radius'
 }

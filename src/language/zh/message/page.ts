@@ -1,4 +1,5 @@
 export default {
+  // 任务
   viewsTitle: '访问人数:',
   views: '人次',
   selfIntroduction:
@@ -20,5 +21,12 @@ export default {
   taskCreatedTime: '创建时间',
   taskActualStartTime: '实际开始',
   taskActualEndTime: '实际结束',
-  tipNotEmpty: '不允许为空 !'
+  tipNotEmpty: '不允许为空 !',
+
+  // 图标
+  iconCopy: '复制名称',
+  iconPreview: '预览',
+  iconEditIcon: '图标',
+  iconEditBackground: '背景',
+  iconEditRadius: '曲率'
 }

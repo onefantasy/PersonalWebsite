@@ -7,12 +7,16 @@
             <component :is="Component" />
           </transition>
         </RouterView>
+
+        <MountedWindowApi />
       </n-message-provider>
     </n-dialog-Provider>
   </n-config-provider>
 </template>
 
 <script setup lang="ts">
+  import MountedWindowApi from '@/components/mountedWindowApi.vue'
+
   import { computed } from 'vue'
   import { useAppStore } from '@/store/modules/app'
   // 引入自定义主题

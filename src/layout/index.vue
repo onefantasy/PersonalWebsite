@@ -42,6 +42,7 @@
 <script lang="ts" setup>
   import Header from '@/layout/header/header.vue'
   import Sider from '@/layout/sider/sider.vue'
+
   import { screenEnum } from '@/enums/breakpointEnum'
   import { onMounted, ref } from 'vue'
   import { createListener } from '@/utils/listener'
