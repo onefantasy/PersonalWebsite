@@ -188,6 +188,8 @@
 
   /** 重置页面 */
   function resetPage(): void {
+    // 用 window.stop() 取消未完成的图片加载
+    window.stop()
     threeHandler && threeHandler.cancelEvent()
     curvedSurfaceDetail.value && curvedSurfaceDetail.value.close()
     container.value && (container.value.innerHTML = '')
