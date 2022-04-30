@@ -19,5 +19,9 @@ export default {
   threeDemo2: 'Demo 2',
   threeMaze: 'Maze',
   threeSkyBox: 'Sky Box',
-  threeCurvedSurface: 'Curved Surface'
+  threeCurvedSurface: 'Curved Surface',
+
+  // css
+  css: 'CSS',
+  cssPassThrough: 'Pass Through'
 }
