@@ -23,5 +23,6 @@ export default {
 
   // css
   css: 'CSS',
-  cssPassThrough: 'Pass Through'
+  cssPassThrough: 'Pass Through',
+  cssLoading: 'Loading'
 }

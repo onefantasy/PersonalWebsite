@@ -23,5 +23,6 @@ export default {
 
   // css
   css: 'CSS',
-  cssPassThrough: '穿越'
+  cssPassThrough: '穿越',
+  cssLoading: '加载动画'
 }

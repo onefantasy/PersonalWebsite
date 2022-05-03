@@ -12,6 +12,12 @@ export default {
       name: 'cssPassThrough',
       component: () => import('@/views/css/passThrough/passThrough.vue'),
       meta: { title: 'route.cssPassThrough', icon: 'sparkles' }
+    },
+    {
+      path: 'loading',
+      name: 'cssLoading',
+      component: () => import('@/views/css/loading/loading.vue'),
+      meta: { title: 'route.cssLoading', icon: '', hidden: true }
     }
   ]
 }
