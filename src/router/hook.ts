@@ -7,10 +7,10 @@ export function setHook(router: Router): void {
     // set userInfo
     userStore.setUserInfo()
     // 无登录，跳转到登录
-    if (!userStore.isLogin && to.path !== '/login') {
-      next('/login')
-      return
-    }
+    // if (!userStore.isLogin && to.path !== '/login') {
+    //   next('/login')
+    //   return
+    // }
     // 正常跳转
     next()
   })
