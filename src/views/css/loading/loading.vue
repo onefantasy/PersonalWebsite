@@ -9,7 +9,7 @@
         size="small"
         class="w-36"
       >
-        <div class="loading-div" :class="[item]" />
+        <div class="w-28 h-28" :class="[item]" />
       </n-card>
     </div>
 
@@ -22,69 +22,38 @@
 
   import { reactive, computed } from 'vue'
 
-  const loadingList = reactive<Array<string>>(['hourglass'])
+  const loadingList = reactive<Array<string>>(['parachute'])
 
   const showGrid = computed((): boolean => loadingList.length > 0)
 </script>
 
 <style lang="scss" scoped>
+  $theme_color: #a3a3a3;
   .css-loading {
-    .loading-div {
-      width: 112px;
-      height: 112px;
-    }
-
-    .hourglass {
-      background: linear-gradient(
-        45deg,
-        rgba(0, 0, 0, 0.4) 0%,
-        rgba(0, 0, 0, 0.4) 25%,
-        transparent 25%,
-        transparent 75%,
-        rgba(0, 0, 0, 0.4) 75%,
-        rgba(0, 0, 0, 0.4) 100%
-      );
-      background-position: 56px 56px;
-      animation: hourglass-animate 3s infinite;
-    }
-    @keyframes hourglass-animate {
-      0% {
-        background: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.4) 0%,
-          rgba(0, 0, 0, 0.4) 25%,
-          transparent 25%,
-          transparent 75%,
-          rgba(0, 0, 0, 0.4) 75%,
-          rgba(0, 0, 0, 0.4) 100%
-        );
-        background-position: 56px 56px;
+    .parachute {
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: $theme_color;
+        border-radius: 50%;
       }
-
-      50% {
-        background: linear-gradient(
-          45deg,
-          rgba(0, 0, 0, 0.4) 0%,
-          rgba(0, 0, 0, 0.4) 25%,
-          transparent 25%,
-          transparent 75%,
-          rgba(0, 0, 0, 0.4) 75%,
-          rgba(0, 0, 0, 0.4) 100%
-        );
-        background-position: 56px 56px;
-      }
-
-      100% {
-        background: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.4) 0%,
-          rgba(0, 0, 0, 0.4) 25%,
-          transparent 25%,
-          transparent 75%,
-          rgba(0, 0, 0, 0.4) 75%,
-          rgba(0, 0, 0, 0.4) 100%
-        );
-        background-position: 56px 56px;
+      &::after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 -10px 0 8px $theme_color;
+        border-radius: 50%;
       }
     }
   }

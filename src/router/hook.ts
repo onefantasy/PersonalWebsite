@@ -11,7 +11,9 @@ export function setHook(router: Router): void {
     //   next('/login')
     //   return
     // }
+
     // 正常跳转
+    window.stop() // 关闭未完成的加载事项
     next()
   })
   router.afterEach((): void => {})
