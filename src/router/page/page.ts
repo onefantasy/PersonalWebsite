@@ -24,6 +24,12 @@ export default {
       name: 'pageIcons',
       component: () => import('@/views/page/icons/icons.vue'),
       meta: { title: 'route.icons', icon: 'icons' }
+    },
+    {
+      path: 'zongziGame',
+      name: 'pageZongziGame',
+      component: () => import('@/views/page/zongzi/zongziGame.vue'),
+      meta: { title: 'route.zongziGame', icon: 'game' }
     }
   ]
 }

@@ -28,5 +28,19 @@ export default {
   iconPreview: 'Preview',
   iconEditIcon: 'Icon',
   iconEditBackground: 'Background',
-  iconEditRadius: 'Radius'
+  iconEditRadius: 'Radius',
+
+  // 接粽子游戏
+  zongziRemainingTime: 'Remaining Time',
+  zongziCurrentScore: 'Score',
+  zongziCurrentWeight: 'Weight',
+  zongziTitle: 'Catch ZongZi',
+  zongziTip: `Rules of the game
+  1. Control the basket to move left and right through [w] or [D] and catch the zongzi for one minute;
+  2. The left and right fort will randomly shoot zongzi and watermelon, and catching zongzi or watermelon will increase the corresponding score and weight;
+  3. 1 point for each zongzi, with a weight of 1;
+  4. Each watermelon has 0 point and the weight is 10;
+  5. The heavier the basket, the slower the move speed;
+  `,
+  zongziStart: 'Start Game'
 }

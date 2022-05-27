@@ -9,6 +9,7 @@ export default {
   PersonalHomepage: '个人主页',
   table: '表格',
   icons: '图标',
+  zongziGame: '接粽子',
 
   // 404
   404: '404',

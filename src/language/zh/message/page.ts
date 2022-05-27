@@ -28,5 +28,19 @@ export default {
   iconPreview: '预览',
   iconEditIcon: '图标',
   iconEditBackground: '背景',
-  iconEditRadius: '曲率'
+  iconEditRadius: '曲率',
+
+  // 接粽子游戏
+  zongziRemainingTime: '剩余时间',
+  zongziCurrentScore: '当前分数',
+  zongziCurrentWeight: '当前重量',
+  zongziTitle: '接粽子',
+  zongziTip: `游戏规则
+  1. 通过 [W] 或者 [D] 控制篮子左右移动, 接住粽子, 时限为一分钟;
+  2. 左右的炮台会随机射出粽子和西瓜, 接住粽子或者西瓜会增加相应的分数和重量;
+  3. 每个粽子1分, 重量为1;
+  4. 每个西瓜0分, 重量为10;
+  5. 篮子越重, 移动速度越慢;
+  `,
+  zongziStart: '开始游戏'
 }

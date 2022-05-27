@@ -9,6 +9,7 @@ export default {
   PersonalHomepage: 'Personal Homepage',
   table: 'Table',
   icons: 'Icons',
+  zongziGame: 'Catch Zongzi',
 
   // 404
   404: '404',
