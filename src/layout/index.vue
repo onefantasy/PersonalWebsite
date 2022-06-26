@@ -26,7 +26,9 @@
         :width="appStore.siderWidth"
         @update:collapsed="hanldeUpdateCollapsed"
       >
-        <Sider @menuUpdateValue="handleMenuUpdateValue" />
+        <n-scrollbar style="max-height: 100%">
+          <Sider @menuUpdateValue="handleMenuUpdateValue" />
+        </n-scrollbar>
       </n-layout-sider>
       <n-layout-content :native-scrollbar="false">
         <RouterView v-slot="{ Component }">
