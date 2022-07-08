@@ -10,6 +10,10 @@ export default {
   mazePrim: '随机Prim',
   mazeRow: '行',
   mazeCol: '列',
+  mazeRestart: '重新开始',
+  mazePassRecord: '通关记录',
+  mazePassTime: '用时',
+  mazePassSize: '规格',
 
   // 天空盒子
   skyBoxTokitchen: '要进去厨房看看吗 ?',

@@ -86,12 +86,42 @@
       <input ref="actionInput" class="absolute top-0 left-0 w-0 h-0 -z-10" />
     </div>
 
+    <!-- 通关提示 -->
+    <div
+      class="absolute top-0 left-0 right-0 flex flex-col items-center justify-center h-full font-serif font-semibold transition-all duration-1000 ease-in-out bg-blue-300 shadow-md text-zinc-600"
+      :class="{ 't-go': !isPass }"
+    >
+      <p
+        class="relative flex flex-col items-center w-1/2 min-w-full p-6 text-xl text-center underline whitespace-pre-line transition-all bg-white underline-offset-4 md:text-left md:min-w-0 rounded-xl decoration-sky-500"
+      >
+        <n-icon class="absolute text-green-600 top-2 right-2">
+          <SvgIcon icon-class="dot" />
+        </n-icon>
+        <n-icon class="absolute text-yellow-600 top-2 right-5">
+          <SvgIcon icon-class="dot" />
+        </n-icon>
+        <n-icon class="absolute text-red-600 top-2 right-8">
+          <SvgIcon icon-class="dot" />
+        </n-icon>
+        <span class="h-8"> {{ $t('three.mazePassRecord') }}: </span>
+        <span class="h-8"> {{ $t('three.mazePassTime') }}: {{ passTime }} </span>
+        <span class="h-8"> {{ $t('three.mazePassSize') }}: {{ xNumber }} × {{ zNumber }} </span>
+        <n-button color="#6366f1" size="large" class="mt-2 mr-2" @click="hanldeRestart">
+          <template #icon>
+            <n-icon class="text-white">
+              <SvgIcon icon-class="restart" />
+            </n-icon>
+          </template>
+        </n-button>
+      </p>
+    </div>
+
     <!-- 重新开始 -->
     <n-button
       color="#6366f1"
       size="large"
       class="absolute transition-all duration-500 opacity-0 top-2 right-2 -z-10"
-      :class="{ 'z-0 opacity-100': isStart }"
+      :class="{ 'z-0 opacity-100': isStart && !isPass }"
       @click="hanldeRestart"
     >
       <template #icon>
@@ -99,7 +129,7 @@
           <SvgIcon icon-class="dot" />
         </n-icon>
       </template>
-      Restart
+      {{ $t('three.mazeRestart') }}
     </n-button>
   </div>
 </template>
@@ -216,6 +246,16 @@
     (): number => (roadWidth + wallWidth) * zNumber.value + wallWidth
   )
 
+  // 终点坐标
+  const endPosition = { x: 0, z: 0 }
+  // 是否通关标志
+  const isPass = ref<boolean>(false)
+
+  // 开始时间
+  let startTime = 0
+  // 通过用时
+  const passTime = ref<string>('')
+
   const initAmmo = async (): Promise<void> => {
     const ammofun = window.Ammo
     if (!ammofun) {
@@ -298,7 +338,7 @@
     physicsWorldRigidBodies.push(body)
   }
 
-  // 创建平行管
+  // 创建刚体对象
   const createParalellepiped = (
     sx: number, // x轴上的长度
     sy: number, // y轴上的长度
@@ -579,6 +619,19 @@
     }
   }
 
+  /** 检测是否通关 */
+  const checkPositionToEnd = (): void => {
+    if (box) {
+      const { x: boxX, z: boxZ } = box.position
+      if (boxX > endPosition.x && boxZ < endPosition.z) {
+        isPass.value = true
+        const useTime = (Date.now() - startTime) / 1000
+        passTime.value = `${Math.floor(useTime / 60)}"${Math.ceil(useTime % 60)}`
+        reset()
+      }
+    }
+  }
+
   const updateRotation = (): void => {
     if (!camera) {
       return
@@ -620,6 +673,8 @@
         default:
           break
       }
+      // 检测是否到达终点
+      checkPositionToEnd()
     }
 
     const handlerClick = (): void => {
@@ -685,6 +740,12 @@
     stats && stats.update()
   }
 
+  /** 计算终点坐标 */
+  const computeEndPosition = (): void => {
+    endPosition.x = groundX.value / 2 - 2 * boxSx
+    endPosition.z = -groundZ.value / 2 + boxSz
+  }
+
   // 开始操作
   const handlerStart = (generateMazeFun: string): void => {
     if (isNaN(xNumber.value) && xNumber.value < 1) {
@@ -698,6 +759,9 @@
     zNumber.value = zNumber.value | 0
 
     isStart.value = true
+    isPass.value = false
+    startTime = Date.now()
+    computeEndPosition()
     createObjects()
     buildingWalls(generateMazeFun)
     onEvent()
@@ -714,6 +778,16 @@
   // 重新开始
   const hanldeRestart = (): void => {
     isStart.value = false
+    isPass.value = false
+    reset()
+  }
+
+  /** 重置 */
+  const reset = (): void => {
+    if (container.value && actionInput.value) {
+      document.exitPointerLock()
+      actionInput.value.blur()
+    }
     setTimeout(() => {
       if (scene && camera) {
         for (let i = 0, len = threeObjects.length; i < len; i++) {

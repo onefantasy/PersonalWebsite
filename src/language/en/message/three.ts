@@ -10,6 +10,10 @@ export default {
   mazePrim: "Randomized Prim's algorithm",
   mazeRow: 'Row',
   mazeCol: 'Col',
+  mazeRestart: 'Restart',
+  mazePassRecord: 'Pass Record',
+  mazePassTime: 'Time',
+  mazePassSize: 'Sizes',
 
   // sky box
   skyBoxTokitchen: 'Want to go into the kitchen ?',
