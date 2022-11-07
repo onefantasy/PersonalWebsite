@@ -1,4 +1,4 @@
-import type { FormItemRule } from 'naive-ui'
+import type { FormItemRule, FormRules } from 'naive-ui'
 
 // 验证规则数据类型
 export interface rulesType {
@@ -15,7 +15,7 @@ export interface loginFormType {
 }
 
 // 登录表单字段验证规则
-export interface loginFormRulesType {
+export interface loginFormRulesType extends FormRules {
   account: Array<rulesType>
   password: Array<rulesType>
 }
@@ -28,7 +28,7 @@ export interface registerFormType {
 }
 
 // 注册表单字段验证规则
-export interface registerFormRulesType {
+export interface registerFormRulesType extends FormRules {
   account: Array<rulesType>
   password: Array<rulesType>
   confirmPassword: Array<rulesType>

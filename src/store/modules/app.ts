@@ -29,7 +29,7 @@ export const useAppStore = defineStore({
       this.isHiddenSider = isHiddenSider
     },
     setI18n(locale: languageEnum): void {
-      i18n.global.locale = locale
+      i18n.global.locale.value = locale
       this.i18n = locale
       localStorage.setItem(localStorageEnum.localLanguage, locale)
     },

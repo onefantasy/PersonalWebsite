@@ -12,6 +12,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "lib": ["esnext", "dom"],
     "baseUrl": "./",
+    "types": ["naive-ui/volar"],
     "paths": {
       "@/*": ["src/*"]
     }

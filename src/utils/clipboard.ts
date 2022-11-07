@@ -12,6 +12,7 @@ import i18n from '@/language/index'
 
 let clipboard: ClipboardJS | null = null
 const message = window.$message
+// @ts-ignore
 const { t } = i18n.global
 
 /**

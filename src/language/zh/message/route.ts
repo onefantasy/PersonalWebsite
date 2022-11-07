@@ -10,6 +10,7 @@ export default {
   table: '表格',
   icons: '图标',
   zongziGame: '接粽子',
+  drag: '拖曳',
 
   // 404
   404: '404',

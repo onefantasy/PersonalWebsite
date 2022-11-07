@@ -80,6 +80,7 @@
 
 <script lang="ts" setup>
   import type { toDoListItemType } from './types'
+  import type { FormRules } from 'naive-ui'
   import { taskStatusEnum } from './enums'
   import { ref, reactive, computed } from 'vue'
   import { useI18n } from 'vue-i18n'
@@ -113,7 +114,7 @@
   const task = ref()
   // form data origin backup
   let targetBackup: toDoListItemType | null
-  const rules = computed(() => ({
+  const rules = computed<FormRules>(() => ({
     title: [
       { required: true, message: t('page.taskTitle') + t('page.tipNotEmpty'), trigger: 'blur' }
     ],

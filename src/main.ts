@@ -6,9 +6,9 @@ import i18n from '@/language'
 import { createPinia } from 'pinia'
 // ui
 import '@/style/index.css'
-import { naive } from '@/utils/native'
+import { naive } from '@/utils/naive'
 // svg loader
-import 'vite-plugin-svg-icons/register'
+import 'virtual:svg-icons-register'
 import svgIcon from './components/svgIcon.vue'
 // directibe
 import { directiveLoading } from '@/components/loading/directive'

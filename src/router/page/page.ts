@@ -30,6 +30,12 @@ export default {
       name: 'pageZongziGame',
       component: () => import('@/views/page/zongzi/zongziGame.vue'),
       meta: { title: 'route.zongziGame', icon: 'game' }
+    },
+    {
+      path: 'drag',
+      name: 'pageDrap',
+      component: () => import('@/views/page/drag/index.vue'),
+      meta: { title: 'route.drag', icon: 'drag-drop' }
     }
   ]
 }

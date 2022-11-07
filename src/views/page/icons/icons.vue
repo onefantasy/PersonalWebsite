@@ -104,7 +104,7 @@
   }
 
   /** 获取v-for之后的icon元素 */
-  function getIconElements(el: DefineComponent): void {
+  function getIconElements(el: any): void {
     const target = el && el.$el
     if (target && target.dataset && target.dataset.refindex === '0') {
       // eslint-disable-next-line no-console

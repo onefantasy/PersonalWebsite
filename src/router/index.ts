@@ -3,7 +3,7 @@ import Layout from '@/layout/index.vue'
 import { setHook } from './hook'
 
 // 自动导入自定义路由
-const routeFiles = import.meta.globEager('./*/*ts')
+const routeFiles = import.meta.glob('./*/*ts', { eager: true })
 const routeArray = Object.keys(routeFiles).reduce(
   (arr: Array<RouteRecordRaw>, name: string): Array<RouteRecordRaw> => {
     const value = routeFiles[name] as { default: RouteRecordRaw }

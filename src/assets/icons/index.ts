@@ -1,5 +1,5 @@
 function getAllIcons(): Array<string> {
-  const iconKeys = Object.keys(import.meta.globEager('./*.svg'))
+  const iconKeys = Object.keys(import.meta.glob('./*.svg', { eager: true }))
   const regName = /(?<=\.\/)[A-Za-z0-9-]+(?=\.svg)/
 
   return iconKeys.map((item): string => {

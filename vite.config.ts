@@ -1,8 +1,8 @@
 import { defineConfig, loadEnv, ConfigEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
-import viteSvgIcons from 'vite-plugin-svg-icons'
-import { injectHtml } from 'vite-plugin-html'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import { createHtmlPlugin } from 'vite-plugin-html'
 import { viteMockServe } from 'vite-plugin-mock'
 
 // https://vitejs.dev/config/
@@ -19,12 +19,14 @@ export default defineConfig(({ mode, command }: ConfigEnv) => {
     plugins: [
       vue(),
       // svg loader
-      viteSvgIcons({
+      createSvgIconsPlugin({
         iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
         symbolId: 'icon-[dir]-[name]'
       }),
       // 变量注入html
-      injectHtml({ data: { appTitle } }),
+      createHtmlPlugin({
+        inject: { data: { title: appTitle } }
+      }),
       // mock
       viteMockServe({
         mockPath: 'mock',

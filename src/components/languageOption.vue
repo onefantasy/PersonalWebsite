@@ -7,6 +7,8 @@
 </template>
 
 <script lang="ts" setup>
+  import type { DropdownOption } from 'naive-ui'
+
   import { renderIcon } from '@/utils/render'
   import { useAppStore } from '@/store/modules/app'
   import { languageEnum } from '@/enums/languageEnum'
@@ -17,7 +19,7 @@
 
   const appStore = useAppStore()
 
-  const languageOptions = [
+  const languageOptions: DropdownOption[] = [
     { label: '中文', key: 'zh', icon: renderIcon('zh') },
     { label: 'English', key: 'en', icon: renderIcon('en') }
   ]

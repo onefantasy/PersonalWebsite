@@ -10,6 +10,7 @@ export default {
   table: 'Table',
   icons: 'Icons',
   zongziGame: 'Catch Zongzi',
+  drag: 'Drag',
 
   // 404
   404: '404',

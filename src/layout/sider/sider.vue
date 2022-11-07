@@ -26,7 +26,7 @@
 
   // router
   const router = useRouter()
-  const routes: RouteRecordRaw[] = router.options.routes
+  const routes: RouteRecordRaw[] = [...router.options.routes]
   const generateMenu = (routes: RouteRecordRaw[], prefixPath = ''): menuItem[] => {
     const routesLength: number = routes.length
     const menus: menuItem[] = []

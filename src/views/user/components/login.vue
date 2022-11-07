@@ -54,6 +54,7 @@
 
 <script lang="ts" setup>
   import type { loginFormType, loginFormRulesType } from './types'
+
   import { reactive, ref, computed } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useUserStore } from '@/store/modules/user'
