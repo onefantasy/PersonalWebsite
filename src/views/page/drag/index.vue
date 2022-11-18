@@ -1,20 +1,39 @@
 <template>
-  <Dragging v-model:list="imageList">
-    <n-image v-for="item in imageList" :key="item" :src="item" />
-  </Dragging>
+  <div>
+    <n-radio-group
+      v-model:value="displayValue"
+      name="imgDisplayValue"
+      size="medium"
+      class="m-2 mb-0"
+    >
+      <n-radio-button :value="false"> block </n-radio-button>
+      <n-radio-button :value="true"> inline-block </n-radio-button>
+    </n-radio-group>
+
+    <Dragging :list="imageList" @update:list="handleUpdateList">
+      <n-image
+        v-for="item in imageList"
+        :key="item"
+        :src="item"
+        class="h-32 m-2 rounded-lg p-2 border-2"
+        :class="{ 'dragging-img': displayValue }"
+      />
+    </Dragging>
+  </div>
 </template>
 
 <script setup lang="ts">
   import Dragging from '@/components/dragging.vue'
 
-  import { reactive } from 'vue'
+  import { reactive, ref } from 'vue'
+
+  const displayValue = ref<boolean>(false)
 
   // 图片列表
   const imageList = reactive<Array<string>>([
     'https://tupian.qqw21.com/article/UploadPic/2020-3/20203521573255419.jpg',
     'https://tupian.qqw21.com/article/UploadPic/2020-3/20203711181187456.jpg',
     'https://tupian.qqw21.com/article/UploadPic/2020-3/20203521573780177.jpg',
-    'https://tupian.qqw21.com/article/UploadPic/2020-3/2020371118881620.jpg',
     'https://tupian.qqw21.com/article/UploadPic/2020-3/2020371118881620.jpg',
     'https://tupian.qqw21.com/article/UploadPic/2019-9/201992019415560455.jpg',
     'https://tupian.qqw21.com/article/UploadPic/2019-10/2019101322473912795.jpg',
@@ -43,4 +62,19 @@
     'https://ts1.cn.mm.bing.net/th/id/R-C.08879eb8b7c83e4eac1183ede67eea52?rik=yPCl7JcAKbYpUw&riu=http%3a%2f%2fimg.redocn.com%2fsheying%2f20150806%2fzhuanwaqiangbijili_4778216.jpg.285.jpg&ehk=eC86D3s1e4EmLx1yu%2ftXWPRPUjllh3%2f%2bWTo6LWUPKJw%3d&risl=&pid=ImgRaw&r=0',
     'https://ts1.cn.mm.bing.net/th/id/R-C.2872f6260ee4f62997ff71253219d372?rik=21%2b5AFSpiNUTOQ&riu=http%3a%2f%2fimg.redocn.com%2fsheying%2f20161103%2fshuiche_7394287_small.jpg&ehk=Xcl0tCeg9aVQzEZcDD0NdLYU1hbypWPJ84PbSLh0zIE%3d&risl=&pid=ImgRaw&r=0'
   ])
+
+  function handleUpdateList(newList: Array<any>) {
+    imageList.length = 0
+    imageList.push(...newList)
+  }
 </script>
+
+<style lang="scss" scoped>
+  .dragging-img {
+    display: block;
+
+    :deep(img) {
+      height: 100%;
+    }
+  }
+</style>

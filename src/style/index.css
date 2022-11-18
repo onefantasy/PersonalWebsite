@@ -1,8 +1,8 @@
 /* transition 过渡动画 */
-@import "./transition.css";
+@import url("./transition.css");
 
 /* 代替@tailwind base; */
-@import "./base.css";
+@import url("./base.css");
 
 @tailwind components;
 @tailwind utilities;
@@ -14,6 +14,14 @@ body {
 /* icon svg position */
 .n-icon svg {
   margin-top: -2px;
+}
+
+/* radio button checked style */
+/* stylelint-disable-next-line selector-class-pattern */
+.n-radio-group label.n-radio-button.n-radio-button--checked {
+  background: var(--n-button-text-color-active);
+  color: var(--n-button-color-active);
+  border-color: var(--n-button-border-color-active);
 }
 
 .my-font-family {
