@@ -1,7 +1,7 @@
 <template>
   <div
     ref="draggingBoxEl"
-    class="dragging-box relative"
+    class="relative dragging-box"
     @mousedown="handleMousedown"
     @mousemove="handleMouseMove"
     @mouseup="handleMouseUp"
@@ -182,57 +182,6 @@
         break
       }
     }
-
-    // let startIndex = 0
-    // let endIndex = movedList.length - 1
-    // let middleIndex = Math.floor(endIndex / 2)
-    // while (middleIndex >= startIndex && middleIndex <= endIndex && startIndex < endIndex) {
-    //   const item = draggingItems[middleIndex] as HTMLElement
-    //   const { offsetHeight, offsetTop, offsetWidth, offsetLeft } = item
-
-    //   // y坐标判断 符合情况处理
-    //   if (mouseY <= offsetHeight + offsetTop && mouseY >= offsetTop) {
-    //     // x坐标判断 符合情况处理
-    //     if (mouseX >= offsetLeft) {
-    //       if (mouseX <= offsetLeft + offsetWidth / 2) {
-    //         movedList = exchangeArrayItem(movedList, middleIndex, originTargetIndex)
-    //         break
-    //       }
-    //       const nextItem = draggingItems[middleIndex + 1] as HTMLElement
-    //       if (!nextItem) {
-    //         const target = movedList[originTargetIndex]
-    //         movedList = exchangeArrayItem(movedList, middleIndex + 1, originTargetIndex)
-    //         movedList.push(target)
-    //         break
-    //       }
-    //       const {
-    //         offsetTop: nextOffsetTop,
-    //         offsetLeft: nextOffsetLeft,
-    //         offsetWidth: nextOffsetWidth
-    //       } = nextItem
-    //       if (mouseY < nextOffsetTop || mouseX < nextOffsetLeft + nextOffsetWidth / 2) {
-    //         movedList = exchangeArrayItem(movedList, middleIndex + 1, originTargetIndex)
-    //         break
-    //       }
-    //     }
-    //     // x坐标判断 不符合情况处理
-    //     endIndex = middleIndex - 1
-    //     middleIndex = Math.floor((startIndex + endIndex) / 2)
-    //     if (startIndex === endIndex) {
-    //       movedList = exchangeArrayItem(movedList, startIndex, originTargetIndex)
-    //       break
-    //     }
-    //     continue
-    //   }
-
-    //   // y坐标判断 不符合情况处理
-    //   startIndex = middleIndex + 1
-    //   middleIndex = Math.floor((startIndex + endIndex) / 2)
-    //   if (startIndex === endIndex) {
-    //     movedList = exchangeArrayItem(movedList, startIndex, originTargetIndex)
-    //     break
-    //   }
-    // }
 
     // 列表数据更新
     emits('update:list', movedList)

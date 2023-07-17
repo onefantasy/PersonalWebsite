@@ -42,5 +42,9 @@ export default {
   4. Each watermelon has 0 point and the weight is 10;
   5. The heavier the basket, the slower the move speed;
   `,
-  zongziStart: 'Start Game'
+  zongziStart: 'Start Game',
+
+  // drag 拖动
+  dragBlock: 'block',
+  dragInlineBlock: 'inline-block'
 }

@@ -6,8 +6,8 @@
       size="medium"
       class="m-2 mb-0"
     >
-      <n-radio-button :value="false"> block </n-radio-button>
-      <n-radio-button :value="true"> inline-block </n-radio-button>
+      <n-radio-button :value="false"> {{ $t('page.dragBlock') }} </n-radio-button>
+      <n-radio-button :value="true"> {{ $t('page.dragInlineBlock') }} </n-radio-button>
     </n-radio-group>
 
     <Dragging :list="imageList" @update:list="handleUpdateList">
@@ -15,7 +15,7 @@
         v-for="item in imageList"
         :key="item"
         :src="item"
-        class="h-32 m-2 rounded-lg p-2 border-2"
+        class="h-32 p-2 m-2 border-2 rounded-lg"
         :class="{ 'dragging-img': displayValue }"
       />
     </Dragging>

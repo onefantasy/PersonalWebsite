@@ -42,5 +42,9 @@ export default {
   4. 每个西瓜0分, 重量为10;
   5. 篮子越重, 移动速度越慢;
   `,
-  zongziStart: '开始游戏'
+  zongziStart: '开始游戏',
+
+  // drag 拖动
+  dragBlock: '块级元素',
+  dragInlineBlock: '行内块元素'
 }
